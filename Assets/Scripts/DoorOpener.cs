@@ -26,6 +26,12 @@ public class DoorOpener : MonoBehaviour, InteractiveObject
     {        
         float t = 0;
         audioSource.Play();
+
+        foreach (EnemyMovement em in FindObjectsOfType<EnemyMovement>(true))
+        {
+            em.gameObject.SetActive(true);
+        }
+
         while (t < 3)
         {            
             yield return new WaitForSeconds(0.01f);
